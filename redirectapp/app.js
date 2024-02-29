@@ -31,10 +31,11 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "https://www.gstati
           if (snapshot.exists()) {
             snapshot.forEach((childSnapshot) => {
               const userData = childSnapshot.val();
+              console.log(userData)
               if (userData.email === userEmail) {
                 const userLink = userData.link;
                 // Redireciona o usuário para o link correspondente
-                window.location.href = userLink;
+                window.location.href = 'https://' + userLink;
               }
             });
           } else {

@@ -14,42 +14,34 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "https://www.gstati
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const auth = getAuth(app);
+  
 
   document.getElementById('login-btn').addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
+    // Obtém o email e a senha digitados pelo usuário
+    const user = document.getElementById('usuario-input').value;
+    const userPassword = document.getElementById('senha-input').value;
   
-    // Inicia o processo de login com o Google
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // Usuário autenticado com sucesso
-        const user = result.user;
-        const userEmail = user.email;
-  
-        // Consulta o banco de dados para obter o link correspondente ao e-mail do usuário
-        const usersRef = ref(database,);
-        get(usersRef).then((snapshot) => {
-          if (snapshot.exists()) {
-            snapshot.forEach((childSnapshot) => {
-              const userData = childSnapshot.val();
-              console.log(userData)
-              if (userData.email === userEmail) {
-                const userLink = userData.link;
-                // Redireciona o usuário para o link correspondente
-                window.location.href = 'https://' + userLink;
-              }
-            });
-          } else {
-            console.log("Nenhum link encontrado para este usuário.");
+    // Consulta o banco de dados para verificar se o email e a senha correspondem
+    const usersRef = ref(database, 'usuario/acessos/');
+    get(usersRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          const userData = childSnapshot.val();
+          console.log(userData)
+          if (userData.usuario === user && userData.senha === userPassword) {
+            const userLink = userData.link;
+            // Redireciona o usuário para o link correspondente
+            window.location.href = userLink;
           }
-        }).catch((error) => {
-          console.error("Erro ao consultar o banco de dados:", error);
         });
-      })
-      .catch((error) => {
-        // Tratamento de erro, se necessário
-        console.error('Erro durante o login:', error);
-      });
+      } else {
+        console.log("Nenhum link encontrado para este usuário.");
+      }
+    }).catch((error) => {
+      console.error("Erro ao consultar o banco de dados:", error);
+    });
   });
+  
         
 
   

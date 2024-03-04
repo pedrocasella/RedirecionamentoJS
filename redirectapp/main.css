@@ -4,8 +4,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+input{
+    width: 150px;
+    padding: 1rem 2rem 1rem 2rem;
+    border: solid #000 1px;
+    border-radius: 30px;
+    margin: .5rem;
+}
+
+#usuario-input{
+    margin-top: 250px;
+}
+
 .login-btn{
-    transform: translateY(125px);
     width: fit-content;
     padding: 1rem 2rem 1rem 2rem;
     background-color: rgb(165, 42, 42);
@@ -14,4 +25,5 @@
     color: #fff;
     user-select: none;
     cursor: pointer;
+    margin-top: 1rem;
 }

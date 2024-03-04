@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes opacity {
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+input{
+    margin: 1rem;
+}
+
+.upload-icon{
+    width: 120px;
+    height: 120px;
+    margin-top: 150px;
+    background-image: url(./../img/upxls.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.confirm{
+    position: fixed;
+    padding: 1rem;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: bolder;
+    background-color: rgb(154, 205, 50);
+    bottom: 0;
+    margin: 2rem;
+    user-select: none;
+    animation: opacity .3s ease-in;
+    display: none;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.12); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.12);  
+}
+
+.send-btn{
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+    user-select: none;
+    background-color: #34a853;
+    margin-top: 1rem;
+}

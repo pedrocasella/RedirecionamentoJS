@@ -12,8 +12,14 @@ input{
     margin: .5rem;
 }
 
-#usuario-input{
-    margin-top: 250px;
+.logo{
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    background-image: url(./img/LOGO.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .login-btn{

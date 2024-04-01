@@ -27,10 +27,10 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "https://www.gstati
       if (snapshot.exists()) {
         snapshot.forEach((childSnapshot) => {
           const userData = childSnapshot.val();
-          console.log(userData)
+          
           if (userData.usuario === user && userData.senha === userPassword) {
             const userLink = userData.link;
-            // Redireciona o usuário para o link correspondente
+            console.log(userData)
             window.location.href = userLink;
           }
         });
